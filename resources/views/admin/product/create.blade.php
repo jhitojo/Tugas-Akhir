@@ -7,7 +7,10 @@
     <div class="card-body">
       <form method="post" action="{{route('product.store')}}">
         {{csrf_field()}}
+<<<<<<< HEAD
         <input type="hidden" name="user_id" value="{{$user->id}}" />
+=======
+>>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Name <span class="text-danger">*</span></label>
           <input id="inputTitle" type="text" name="name" placeholder="Enter name"  value="{{old('name')}}" class="form-control">
@@ -15,7 +18,13 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
+<<<<<<< HEAD
               {{-- {{$categories}} --}}
+=======
+
+              {{-- {{$categories}} --}}
+
+>>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
         <div class="form-group">
           <label for="cat_id">Category <span class="text-danger">*</span></label>
           <select name="cat_id" id="cat_id" class="form-control">

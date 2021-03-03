@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+<<<<<<< HEAD
 use Illuminate\Http\Request;
+=======
+>>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
 
 class LoginController extends Controller
 {
@@ -38,6 +41,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+<<<<<<< HEAD
 
     public function login(Request $request)
 
@@ -60,4 +64,6 @@ class LoginController extends Controller
             ->with('error','Email-Address And Password Are Wrong.');
         }
     }
+=======
+>>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
 }

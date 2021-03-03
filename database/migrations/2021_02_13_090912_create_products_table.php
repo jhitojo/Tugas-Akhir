@@ -18,7 +18,10 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->unsignedBigInteger('cat_id')->nullable();
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('SET NULL');
+<<<<<<< HEAD
             $table->foreignId('user_id');
+=======
+>>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
             $table->integer('stock')->default(1);
             $table->float('price')->default(1);
             $table->text('photo');
