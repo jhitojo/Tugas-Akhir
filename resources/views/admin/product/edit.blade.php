@@ -9,7 +9,6 @@
         @csrf 
         @method('PATCH')
         <div class="form-group">
-<<<<<<< HEAD
           <label for="inputTitle" class="col-form-label">Name <span class="text-danger">*</span></label>
           <input id="inputTitle" type="text" name="name" placeholder="Enter name"  value="{{$product->name}}" class="form-control">
           @error('name')
@@ -17,22 +16,6 @@
           @enderror
         </div>
               {{-- {{$categories}} --}}
-=======
-          <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
-          <input id="inputTitle" type="text" name="name" placeholder="Enter name"  value="{{$product->name}}" class="form-control">
-          @error('title')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
-        </div>
-
-       
-
-        
-
-       
-              {{-- {{$categories}} --}}
-
->>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
         <div class="form-group">
           <label for="cat_id">Category <span class="text-danger">*</span></label>
           <select name="cat_id" id="cat_id" class="form-control">

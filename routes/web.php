@@ -13,26 +13,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Frontend
+Route::get('/', 'FrontendController@home');
+Route::get('/home', 'FrontendController@home')->name('home');
+Route::get('/collection', 'FrontendController@collection')->name('frontend.collection');
+Route::get('/details/{id}', 'FrontendController@details');
+Route::get('/category/{id}', 'FrontendController@show')->name('collection.show');
+
+
+Route::get('/buynow/{id}', 'CartController@buynow')->name('cart.buy');
+
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
- // Category
- Route::resource('/category','CategoryController')->middleware('cekstatus');
- Route::resource('/product','ProductController');
- Route::resource('/user','UserController')->middleware('cekstatus');
+// Product
+Route::resource('/product','ProductController');
 
-=======
+// User
+Route::resource('/user','UserController')->middleware('cekstatus');
 
- // Category
- Route::resource('/category','CategoryController');
- Route::resource('/product','ProductController');
+// Category
+Route::resource('/category','CategoryController')->middleware('cekstatus');
 
-Auth::routes();
+// Order
+Route::get('/order/{type?}', 'OrderController@order');
+Route::post('toggledeliver/{orderId}', 'OrderController@toggledeliver')->name('toggle.deliver');
 
-Route::get('/home', 'HomeController@index')->name('home');
->>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
+// Cart
+Route::get('/buynow/{id}', 'CartController@buynow')->name('cart.buy');
+Route::resource('/cart', 'CartController');

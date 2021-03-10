@@ -7,14 +7,11 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-<<<<<<< HEAD
     function __construct()
     {
       $this->middleware('cekstatus')->except('index');
     }
 
-=======
->>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
     /**
      * Display a listing of the resource.
      *
