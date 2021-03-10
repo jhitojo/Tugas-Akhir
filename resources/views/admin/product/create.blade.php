@@ -7,10 +7,7 @@
     <div class="card-body">
       <form method="post" action="{{route('product.store')}}">
         {{csrf_field()}}
-<<<<<<< HEAD
         <input type="hidden" name="user_id" value="{{$user->id}}" />
-=======
->>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Name <span class="text-danger">*</span></label>
           <input id="inputTitle" type="text" name="name" placeholder="Enter name"  value="{{old('name')}}" class="form-control">
@@ -18,13 +15,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-<<<<<<< HEAD
               {{-- {{$categories}} --}}
-=======
-
-              {{-- {{$categories}} --}}
-
->>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
         <div class="form-group">
           <label for="cat_id">Category <span class="text-danger">*</span></label>
           <select name="cat_id" id="cat_id" class="form-control">
@@ -67,6 +58,22 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
+
+        <!-- <div class="form-group">
+          <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
+          <div class="input-group">
+              <span class="input-group-btn">
+                  <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                  <i class="fa fa-picture-o"></i> Choose
+                  </a>
+              </span>
+          <input id="thumbnail" class="form-control" type="file" name="photo" value="{{old('photo')}}">
+        </div>
+        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
+          @error('photo')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div> -->
         
         
         <div class="form-group mb-3">

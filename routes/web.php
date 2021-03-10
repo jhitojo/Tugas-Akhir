@@ -13,15 +13,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Frontend
+Route::get('/', 'FrontendController@home');
+Route::get('/home', 'FrontendController@home')->name('home');
+Route::get('/collection', 'FrontendController@collection')->name('frontend.collection');
+Route::get('/details/{id}', 'FrontendController@details');
+Route::get('/category/{id}', 'FrontendController@show')->name('collection.show');
+
+
+Route::get('/buynow/{id}', 'CartController@buynow')->name('cart.buy');
+
 Route::get('/', function () {
     return view('welcome');
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
- // Category
- Route::resource('/category','CategoryController')->middleware('cekstatus');
- Route::resource('/product','ProductController');
- Route::resource('/user','UserController')->middleware('cekstatus');
+// Product
+Route::resource('/product','ProductController');
 
+<<<<<<< HEAD
+=======
+// User
+Route::resource('/user','UserController')->middleware('cekstatus');
+
+// Category
+Route::resource('/category','CategoryController')->middleware('cekstatus');
+
+// Order
+Route::get('/order/{type?}', 'OrderController@order');
+Route::post('toggledeliver/{orderId}', 'OrderController@toggledeliver')->name('toggle.deliver');
+
+// Cart
+Route::get('/buynow/{id}', 'CartController@buynow')->name('cart.buy');
+Route::resource('/cart', 'CartController');
+>>>>>>> f683db7ee6d1f8a9265afabcf9d2e8e1b6daeb71
