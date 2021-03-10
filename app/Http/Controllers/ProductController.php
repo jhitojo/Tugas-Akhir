@@ -78,9 +78,6 @@ class ProductController extends Controller
         $data['user_id'] = $request->input('user_id');
         $data['stock'] = $request->input('stock');
         $data['price'] = $request->input('price');
-<<<<<<< HEAD
-        $data['photo'] = $request->input('photo');
-=======
 
         if($request->hasFile('photo')) {
             $destination = 'img/uploads/';
@@ -91,7 +88,6 @@ class ProductController extends Controller
         } else {
             $data['photo'] = "default.jpg";
         }
->>>>>>> f683db7ee6d1f8a9265afabcf9d2e8e1b6daeb71
         $status=Product::create($data);
         if($status){
             request()->session()->flash('success','Product Successfully added');

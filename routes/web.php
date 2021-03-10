@@ -33,8 +33,6 @@ Auth::routes();
 // Product
 Route::resource('/product','ProductController');
 
-<<<<<<< HEAD
-=======
 // User
 Route::resource('/user','UserController')->middleware('cekstatus');
 
@@ -48,4 +46,3 @@ Route::post('toggledeliver/{orderId}', 'OrderController@toggledeliver')->name('t
 // Cart
 Route::get('/buynow/{id}', 'CartController@buynow')->name('cart.buy');
 Route::resource('/cart', 'CartController');
->>>>>>> f683db7ee6d1f8a9265afabcf9d2e8e1b6daeb71
