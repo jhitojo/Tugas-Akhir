@@ -64,38 +64,61 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $request->validate([
             'name'=>'string|required',
             'stock'=>"required|numeric",
             'price'=>'required|numeric',
             'cat_id'=>'required|exists:categories,id',
-            'photo'=>'string|required'
+            'photo'=>'required|image|max:2048'
         ]);
 
-        // $data=$request->all();
-        $data['name'] = $request->input('name');
-        $data['cat_id'] = $request->input('cat_id');
-        $data['user_id'] = $request->input('user_id');
-        $data['stock'] = $request->input('stock');
-        $data['price'] = $request->input('price');
+        $photo = $request->file('photo');
 
-        if($request->hasFile('photo')) {
-            $destination = 'img/uploads/';
-            $file = $request->file('photo');
-            $file->move($destination, time().$file->getClientOriginalName());
-           $data['photo'] = time().$file->getClientOriginalName();
+        $new_name = rand() . '.' . $photo->getClientOriginalExtension();
+        $photo->move(public_path('photos'), $new_name);
+        $form_data = array(
+            'name'             => $request->name,
+            'stock'            => $request->stock,
+            'price'            => $request->price,
+            'cat_id'           => $request->cat_id,
+            'user_id'           => $request->user_id,
+            'photo'            => $new_name
+        );
+        // dd($form_data);
+        Product::create($form_data);
 
-        } else {
-            $data['photo'] = "default.jpg";
-        }
-        $status=Product::create($data);
-        if($status){
-            request()->session()->flash('success','Product Successfully added');
-        }
-        else{
-            request()->session()->flash('error','Please try again!!');
-        }
         return redirect()->route('product.index');
+
+        // $status=Product::create($data);
+        // if($status){
+        //     request()->session()->flash('success','Product Successfully added');
+        // }
+        // else{
+        //     request()->session()->flash('error','Please try again!!');
+        // }
+        // console.log($status);
+        // return redirect()->route('product.index');
+
+        // $data=$request->all();
+        
+
+        // if($request->hasFile('photo')) {
+        //     $destination = 'img/uploads/';
+        //     $file = $request->file('photo');
+        //     $file->move($destination, time().$file->getClientOriginalName());
+        //    $data['photo'] = time().$file->getClientOriginalName();
+
+        // } else {
+        //     $data['photo'] = "default.jpg";
+        // }
+        // $status=Product::create($data);
+        // if($status){
+        //     request()->session()->flash('success','Product Successfully added');
+        // }
+        // else{
+        //     request()->session()->flash('error','Please try again!!');
+        // }
+        // return redirect()->route('product.index');
     }
 
     /**

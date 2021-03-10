@@ -16,6 +16,7 @@ class CekStatus
      */
     public function handle($request, Closure $next)
     {
+        // if (Auth::check() && Auth::user()->role == 'admin' OR Auth::user()->role == 'seller'){
         if (Auth::check() && Auth::user()->role == 'admin'){
             return $next($request);
         }
