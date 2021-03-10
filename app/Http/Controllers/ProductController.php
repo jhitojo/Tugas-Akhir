@@ -4,13 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-<<<<<<< HEAD
 use App\User;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
-=======
-use App\Category;
->>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
 
 class ProductController extends Controller
 {
@@ -19,7 +15,6 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function __construct()
     {
         $this->middleware(['auth']);
@@ -39,13 +34,6 @@ class ProductController extends Controller
         // return $products;
         return view('admin.product.index', compact('products','user','edit','categories',$categories));
         // return view('admin.product.index')->with('products',$products);
-=======
-    public function index()
-    {
-        $products=Product::all();
-        // return $products;
-        return view('admin.product.index')->with('products',$products);
->>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
     }
 
     /**
@@ -55,7 +43,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
         $user = Auth::user();
         $category=Category::all();
         if($user->id == 1) {
@@ -67,11 +54,6 @@ class ProductController extends Controller
         // return $category;
         return view('admin.product.create', compact('user','edit'))->with('categories',$category);
         // return view('admin.product.create')->with('categories',$category);
-=======
-        $category=Category::all();
-        // return $category;
-        return view('admin.product.create')->with('categories',$category);
->>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
     }
 
     /**
@@ -90,7 +72,6 @@ class ProductController extends Controller
             'photo'=>'string|required'
         ]);
 
-<<<<<<< HEAD
         // $data=$request->all();
         $data['name'] = $request->input('name');
         $data['cat_id'] = $request->input('cat_id');
@@ -98,9 +79,6 @@ class ProductController extends Controller
         $data['stock'] = $request->input('stock');
         $data['price'] = $request->input('price');
         $data['photo'] = $request->input('photo');
-=======
-        $data=$request->all();
->>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
         $status=Product::create($data);
         if($status){
             request()->session()->flash('success','Product Successfully added');
@@ -130,11 +108,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-<<<<<<< HEAD
         $user = Auth::user();
         $users = User::all();
-=======
->>>>>>> 0d9070bea647a728bb23198d30ef4e40ac3ff4eb
         $product=Product::findOrFail($id);
         $category=Category::all();
         $items=Product::where('id',$id)->get();
