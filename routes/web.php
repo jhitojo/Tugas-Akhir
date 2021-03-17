@@ -23,9 +23,9 @@ Route::get('/category/{id}', 'FrontendController@show')->name('collection.show')
 
 Route::get('/buynow/{id}', 'CartController@buynow')->name('cart.buy');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index')->name('home');
