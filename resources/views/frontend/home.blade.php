@@ -75,19 +75,12 @@
                     <div class="underline"></div>
                 </div>
             </div>
-            <?php
-                    $numOfCols = 3;
-                    $rowCount = 0;
-                    $bootstrapColWidth = 12 / $numOfCols;
-                    ?>
-            <div class="row">
-           
                 <div class="shop-">
+                <div class="row">
                     <!-- Single Product Start -->
                     @foreach($product as $p)
                     
-                    <!-- <div class="col-md-<?php echo $bootstrapColWidth; ?>" id="product{{$p->id}}"> -->
-                    <div class="col-3" id="product{{$p->id}}">
+                    <div class="col-sm-4" id="product{{$p->id}}">
                         <div class="product-item fix">
                             <div class="product-img-hover">
                                 <!-- Product image -->
@@ -126,14 +119,8 @@
                         @endforeach
                 </>
                 <br>
+                    </div>
                 </div>
-            </div>
-            <?php
-                    $rowCount++;
-                    if($rowCount % $numOfCols == 0 && $rowCount < $arrayCount) {
-                        echo '</div><div class="row">';
-                    }
-            ?>
         </div>
         
     </div><!--End Featured Product Area-->
