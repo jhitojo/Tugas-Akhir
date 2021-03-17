@@ -1,0 +1,11 @@
+.sidebar-tukuemas {
+    background-color: #ffbd29;
+}
+
+.warna-font .nav-link {
+    color: white;
+}
+
+.warna-font .nav-link:not(.active):hover {
+    color: #007bff;
+}

@@ -1,8 +1,8 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; 2021 <a>Tukuemas.com</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.5
+      <b>Version</b> 1
     </div>
   </footer>
 
@@ -13,7 +13,29 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+<script type="text/javascript">
+    $(document).ready(function(){
+          $('ul li a').click(function(){
+            $('li a').removeClass("active");
+            $(this).addClass("active");
+    });
 
+    $(document).ready(function(){
+    $('.klik_menu').click(function(){
+      var menu = $(this).attr('id');
+      if(menu == "category"){
+        $('.badan').load('{{url('/category')}}');           
+      }else if(menu == "product"){
+        $('.badan').load('{{url('/product')}}');   
+      }else if(menu == "user"){
+        $('.badan').load('{{url('/user')}}');                                    
+    }); 
+
+    // halaman yang di load default pertama kali
+    // $('.badan').load('home');           
+ 
+  });
+</script>
 <!-- jQuery -->
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->

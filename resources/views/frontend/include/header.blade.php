@@ -1,5 +1,5 @@
 
-   @section('title','PAKO|HomePage')
+   @section('title','TUKUEMAS|HomePage')
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Fav Icon -->
     <link id="favicon" rel="icon" type="image/png" href="img/favicon.png" />
@@ -8,7 +8,7 @@
     <!-- Google Font Dancing Script -->
     <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}" />
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}" />
     <!-- Owl Carousel CSS -->
