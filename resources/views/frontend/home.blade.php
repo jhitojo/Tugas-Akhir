@@ -84,14 +84,15 @@
            
                 <div class="shop-">
                     <!-- Single Product Start -->
+                    <div class="row">
                     @foreach($product as $p)
                     
                     <!-- <div class="col-md-<?php echo $bootstrapColWidth; ?>" id="product{{$p->id}}"> -->
-                    <div class="col-3" id="product{{$p->id}}">
+                    <div class="col" id="product{{$p->id}}">
                         <div class="product-item fix">
                             <div class="product-img-hover">
                                 <!-- Product image -->
-                                <a href="details/{{$p->id}}" class="pro-image fix"><img src="{{asset('img/uploads/'.$p->image)}} " alt="product" height="250px" width="250px"/></a>
+                                <a href="details/{{$p->id}}" class="pro-image fix"><img src="{{asset('photos')}}/{{$p->photo}}" alt="product" height="250px" width="250px"/></a>
                                 <!-- Product action Btn -->
                             </div>
                             <div class="pro-name-price-ratting">
@@ -124,16 +125,11 @@
                     </div><!-- Single Product End -->
                     
                         @endforeach
+                        </div>
                 </>
                 <br>
                 </div>
             </div>
-            <?php
-                    $rowCount++;
-                    if($rowCount % $numOfCols == 0 && $rowCount < $arrayCount) {
-                        echo '</div><div class="row">';
-                    }
-            ?>
         </div>
         
     </div><!--End Featured Product Area-->
