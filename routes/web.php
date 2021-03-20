@@ -22,6 +22,8 @@ Route::get('/category/{id}', 'FrontendController@show')->name('collection.show')
 
 
 Route::get('/buynow/{id}', 'CartController@buynow')->name('cart.buy');
+// Cart
+Route::resource('/cart', 'CartController');
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,6 +45,5 @@ Route::resource('/category','CategoryController')->middleware('cekstatus');
 Route::get('/order/{type?}', 'OrderController@order');
 Route::post('toggledeliver/{orderId}', 'OrderController@toggledeliver')->name('toggle.deliver');
 
-// Cart
-Route::get('/buynow/{id}', 'CartController@buynow')->name('cart.buy');
-Route::resource('/cart', 'CartController');
+
+Route::get('shipping-info', 'CheckoutController@shipping')->name('checkout.shipping');
