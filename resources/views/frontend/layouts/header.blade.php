@@ -1,5 +1,9 @@
-
-   <!-- @section('title','TUKUEMAS|HomePage') -->
+<!-- Meta Tag -->
+@yield('meta')
+<!-- Title Tag  -->
+<title>@yield('title')</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/dist/img/logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Fav Icon -->
     <link id="favicon" rel="icon" type="image/png" href="img/favicon.png" />
@@ -10,6 +14,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}" />
     <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="{{asset('dist/css/tukuemas.css')}}">
+
     <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}" />
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/owl.carousel.min.css')}}" />

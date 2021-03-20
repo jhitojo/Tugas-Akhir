@@ -12,7 +12,7 @@
                 <a href="{{asset('/vendor-signup')}}" class="btn btn-sm btn-warning" role="button">BECOME A VENDOR</a>
                 @endif
                 </div>
-
+            
             </div>
             <div class="col-sm-6">
                 <div class="search float-right">
