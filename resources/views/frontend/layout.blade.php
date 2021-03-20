@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    @yield('title')
+    <!-- @yield('title') -->
 
     @include('frontend.include.header')
 </head>
