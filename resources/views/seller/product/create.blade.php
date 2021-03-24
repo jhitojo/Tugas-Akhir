@@ -1,13 +1,13 @@
-@extends('admin.layouts.master')
+@extends('seller.layouts.master')
 
-@section('title','Admin || Create Product')
+@section('title','Seller || Create Product')
 
 @section('main-content')
 
 <div class="card">
     <h5 class="card-header">Add Product</h5>
     <div class="card-body">
-      <form method="post" enctype="multipart/form-data" action="{{route('product.store')}}">
+      <form method="post" enctype="multipart/form-data" action="{{route('product.store_seller')}}">
         {{csrf_field()}}
         <input type="hidden" name="user_id" value="{{$user->id}}" />
         <div class="form-group">

@@ -36,6 +36,22 @@ class ProductController extends Controller
         // return view('admin.product.index')->with('products',$products);
     }
 
+    public function index_seller()
+    {
+        $user = Auth::user();
+        $categories = Category::all();
+
+        if($user->id == 1){
+            $products = Product::all();
+        } else {
+            $products = Product::where('user_id', $user->id)->get();
+        }
+        $edit = 0;
+        // return $products;
+        return view('seller.product.index', compact('products','user','edit','categories',$categories));
+        // return view('admin.product.index')->with('products',$products);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -53,6 +69,21 @@ class ProductController extends Controller
         $edit = 0;
         // return $category;
         return view('admin.product.create', compact('user','edit'))->with('categories',$category);
+        // return view('admin.product.create')->with('categories',$category);
+    }
+
+    public function create_seller()
+    {
+        $user = Auth::user();
+        $category=Category::all();
+        if($user->id == 1) {
+            $product = Product::all();
+        } else {
+           $product = Product::where('user_id', $user->id)->get();
+        }
+        $edit = 0;
+        // return $category;
+        return view('seller.product.create', compact('user','edit'))->with('categories',$category);
         // return view('admin.product.create')->with('categories',$category);
     }
 
@@ -121,6 +152,65 @@ class ProductController extends Controller
         // return redirect()->route('product.index');
     }
 
+    public function store_seller(Request $request)
+    {
+        $request->validate([
+            'name'=>'string|required',
+            'stock'=>"required|numeric",
+            'price'=>'required|numeric',
+            'cat_id'=>'required|exists:categories,id',
+            'photo'=>'required|image|max:2048'
+        ]);
+
+        $photo = $request->file('photo');
+
+        $new_name = rand() . '.' . $photo->getClientOriginalExtension();
+        $photo->move(public_path('photos'), $new_name);
+        $form_data = array(
+            'name'             => $request->name,
+            'stock'            => $request->stock,
+            'price'            => $request->price,
+            'cat_id'           => $request->cat_id,
+            'user_id'           => $request->user_id,
+            'photo'            => $new_name
+        );
+        // dd($form_data);
+        Product::create($form_data);
+
+        return redirect()->route('product.index_seller');
+
+        // $status=Product::create($data);
+        // if($status){
+        //     request()->session()->flash('success','Product Successfully added');
+        // }
+        // else{
+        //     request()->session()->flash('error','Please try again!!');
+        // }
+        // console.log($status);
+        // return redirect()->route('product.index');
+
+        // $data=$request->all();
+        
+
+        // if($request->hasFile('photo')) {
+        //     $destination = 'img/uploads/';
+        //     $file = $request->file('photo');
+        //     $file->move($destination, time().$file->getClientOriginalName());
+        //    $data['photo'] = time().$file->getClientOriginalName();
+
+        // } else {
+        //     $data['photo'] = "default.jpg";
+        // }
+        // $status=Product::create($data);
+        // if($status){
+        //     request()->session()->flash('success','Product Successfully added');
+        // }
+        // else{
+        //     request()->session()->flash('error','Please try again!!');
+        // }
+        // return redirect()->route('product.index');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -149,6 +239,19 @@ class ProductController extends Controller
         return view('admin.product.edit')->with('product',$product)
                     ->with('categories',$category)->with('items',$items);
     }
+
+    public function edit_seller($id)
+    {
+        $user = Auth::user();
+        $users = User::all();
+        $product=Product::findOrFail($id);
+        $category=Category::all();
+        $items=Product::where('id',$id)->get();
+        // return $items;
+        return view('seller.product.edit')->with('product',$product)
+                    ->with('categories',$category)->with('items',$items);
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -180,6 +283,29 @@ class ProductController extends Controller
         return redirect()->route('product.index');
     }
 
+    public function update_seller(Request $request, $id)
+    {
+        $product=Product::findOrFail($id);
+        $this->validate($request,[
+            'name'=>'string|required',
+            'stock'=>"required|numeric",
+            'price'=>'required|numeric',
+            'cat_id'=>'required|exists:categories,id',
+            'photo'=>'string|required'
+        ]);
+
+        $data=$request->all();
+        // return $data;
+        $status=$product->fill($data)->save();
+        if($status){
+            request()->session()->flash('success','Product Successfully updated');
+        }
+        else{
+            request()->session()->flash('error','Please try again!!');
+        }
+        return redirect()->route('product.index_seller');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -198,5 +324,19 @@ class ProductController extends Controller
             request()->session()->flash('error','Error while deleting product');
         }
         return redirect()->route('product.index');
+    }
+
+    public function destroy_seller($id)
+    {
+        $product=Product::findOrFail($id);
+        $status=$product->delete();
+        
+        if($status){
+            request()->session()->flash('success','Product successfully deleted');
+        }
+        else{
+            request()->session()->flash('error','Error while deleting product');
+        }
+        return redirect()->route('product.index_seller');
     }
 }

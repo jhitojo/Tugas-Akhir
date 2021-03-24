@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
 
+@section('title','Admin || Create User')
+
 @section('main-content')
 
 <div class="card">

@@ -1,13 +1,13 @@
 @extends('admin.layouts.master')
 
-@section('title','Admin || Edit Product')
+@section('title','Seller || Edit Product')
 
 @section('main-content')
 
 <div class="card">
     <h5 class="card-header">Edit Product</h5>
     <div class="card-body">
-      <form method="post" action="{{route('product.update',$product->id)}}">
+      <form method="post" action="{{route('product.update_seller',$product->id)}}">
         @csrf 
         @method('PATCH')
         <div class="form-group">
@@ -28,15 +28,6 @@
           </select>
         </div>
        
-       
-
-
-       
-        
-        
-
-       
-
         <div class="form-group">
           <label for="stock">Stock <span class="text-danger">*</span></label>
           <input id="quantity" type="number" name="stock" min="0" placeholder="Enter quantity"  value="{{$product->stock}}" class="form-control">

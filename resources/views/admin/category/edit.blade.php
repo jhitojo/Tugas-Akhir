@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
 
+@section('title','Admin || Edit Category')
+
 @section('main-content')
 
 <div class="card">
