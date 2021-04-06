@@ -80,7 +80,31 @@
               </p>
             </a>
           </li>
+         
+          <li class="nav-item">
+            <a href="/transaksi" id="user" class="nav-link klik_menu">
+              <i class="nav-icon fa fa-user"></i>
+              <p>
+                Transaksi
+                <!-- <i class="right fas fa-angle-left"></i> -->
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+              <button class="btn btn-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                      style="display: none;">
+                      @csrf
+                  </form>
+          </li>
+
         </ul>
+        
       </nav>
       <!-- /.sidebar-menu -->
     </div>

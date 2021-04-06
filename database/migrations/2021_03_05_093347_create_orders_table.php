@@ -16,9 +16,10 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->float('total');
-            $table->string('payment_id');
-            $table->tinyInteger('delivered')->default(0);
+            $table->date('tanggal');
+            $table->integer('total_harga');
+            $table->enum('status_cod', ['1', '2','3'])->default(1);
+            $table->string('status_pembayaran',1)->nullable();
             $table->timestamps();
         });
     }

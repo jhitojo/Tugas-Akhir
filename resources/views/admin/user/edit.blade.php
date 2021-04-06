@@ -23,6 +23,14 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
+        
+        <div class="form-group">
+          <label for="inputTitle" class="col-form-label">No WhatsApp <span class="text-danger">*</span></label>
+          <input id="inputTitle" type="text" name="no_wa" placeholder="Enter Nomor WhatsApp"  value="{{$user->no_wa}}" class="form-control">
+          @error('no_wa')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
 
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Password <span class="text-danger">*</span></label>

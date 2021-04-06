@@ -50,10 +50,12 @@
                         </div>
                         <div>
                             <div class="product-icon">
-                                <a class="btn btn-warning " href="{{route('cart.show',$p->id)}}"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                            <a class="btn btn-warning" href="{{url('order')}}/{{$p->id}}">Beli</a>
+                                
+                                <!-- <a class="btn btn-warning " href="{{route('cart.show',$p->id)}}"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                 </div>
                                 <div>
-                              <a class="btn btn-warning" href="{{route('cart.buy',$p->id)}}">BUY NOW</a>
+                              <a class="btn btn-warning" href="{{route('cart.buy',$p->id)}}">BUY NOW</a> -->
                             </div>
                         </div>
                     </div><!-- Single Product End -->

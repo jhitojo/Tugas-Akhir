@@ -31,11 +31,22 @@
                                 @enderror
                         </div>
                         <div class="row px-3"> 
-                            <label for="email" class="mb-0 text-sm">{{ __('E-Mail Address') }}</label>
+                            <label for="no_wa" class="mb-0 text-sm">{{ __('E-Mail Address') }}</label>
                             <!-- <div class="col-md-6"> -->
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                             @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="row px-3"> 
+                            <label for="no_wa" class="mb-0 text-sm">{{ __('Nomer WhatsApp') }}</label>
+                            <!-- <div class="col-md-6"> -->
+                            <input id="no_wa" type="no_wa" class="form-control @error('no_wa') is-invalid @enderror" name="no_wa" value="{{ old('no_wa') }}" required autocomplete="no_wa">
+
+                            @error('no_wa')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

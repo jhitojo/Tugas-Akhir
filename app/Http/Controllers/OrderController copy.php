@@ -2,16 +2,57 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class AddressController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+      $this->middleware('cekstatus');
+    }
+
+    public function order( $type='')
+    {
+        //
+
+        if($type=='pending')
+        {
+            $order=Order::where('delivered','0')->get();
+
+        } elseif ($type=='delivered')
+        {
+            $order=Order::where('delivered','1')->get();
+
+        } else{
+
+            $order = Order::all();
+        }
+
+
+        return view('admin.order',compact('order'));
+    }
+
+    public function toggledeliver(Request $request,$orderId)
+    {
+            $order = Order::find($orderId);
+            if($request->has('delivered'))
+            {
+                $order->delivered = $request->delivered;
+            } else{
+                $order->delivered="0";
+            }
+
+            $order->save();
+            return back();
+    }
+
+
     public function index()
     {
         //
@@ -35,8 +76,7 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        Auth::user()->address()->create($request->all());
-        return redirect()->route('checkout.payment');
+        //
     }
 
     /**
