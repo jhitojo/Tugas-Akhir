@@ -1,6 +1,6 @@
 @extends('frontend.layout')
 
-<!-- @section('title','Tukuemas || HOME Page') -->
+@section('title','Tukuemas || HOME Page')
 
 @section('content')
    

@@ -25,6 +25,15 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
+            <a href="/dashboard_admin" id="dashboard_admin" class="nav-link">
+              <i class="nav-icon fa fa-random"></i>
+              <p>
+                Dashboard
+                <!-- <i class="right fas fa-angle-left"></i> -->
+              </p>
+            </a>
+           </li>
+          <li class="nav-item">
             <a href="/category" id="category" class="nav-link">
               <i class="nav-icon fa fa-random"></i>
               <p>
@@ -46,7 +55,7 @@
                 </a>
               </li>
             </ul> -->
-          </li>
+          </>
           <li class="nav-item">
             <a href="/product" id="product" class="nav-link klik_menu">
               <i class="nav-icon fa fa-tags"></i>

@@ -40,8 +40,21 @@ Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index')->name('home');
 
+//Dashboard Admin
+Route::resource('/dashboard_admin','AdminController')->middleware('cekstatus');
+
+//Dashboard seller
+Route::resource('/dashboard_seller','SellerController');
+
 // Product
 Route::resource('/product','ProductController');
+// Product seller
+Route::get('/product_seller','ProductController@index_seller')->name('product.index_seller');
+Route::get('/create_seller','ProductController@create_seller')->name('product.create_seller');
+Route::post('/store_seller','ProductController@store_seller')->name('product.store_seller');
+Route::get('/edit_seller/{id}','ProductController@edit_seller')->name('product.edit_seller');
+Route::PATCH('/update_seller/{id}','ProductController@update_seller')->name('product.update_seller');
+Route::delete('/destroy_seller/{id}','ProductController@destroy_seller')->name('product.destroy_seller');
 
 // User
 Route::resource('/user','UserController')->middleware('cekstatus');

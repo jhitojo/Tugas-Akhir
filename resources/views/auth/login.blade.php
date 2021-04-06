@@ -44,18 +44,8 @@
                                 @enderror
                         </div>
                         <div class="row px-3 mb-4">
-                            <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember" 
-                                {{ old('remember') ? 'checked' : '' }} 
-                            >    
-                            <label class="form-check-label" for="remember">
-                            {{ __('Remember Me') }}
-                    
-                            </label>
-                            </div>
-                            
                             @if (Route::has('password.request'))
-                                <a class="forgot-pass ml-auto mb-0 text-sm" href="{{ route('password.request') }}">
+                                <a class="forgot-pass  mb-0 text-sm" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>    
                             @endif
@@ -74,11 +64,6 @@
                 </div>
             </div>
         </div>
-                <!-- <div class="bg-yellow py-4">
-                    <div class="row px-3">
-                        <small class="ml-4 ml-sm-5 mb-2">Copyright &copy;Tukuemas 2021. All rights reserved.</small>
-                    </div>
-                </div> -->
     </div>
 </div>
 <!-- <div class="container">

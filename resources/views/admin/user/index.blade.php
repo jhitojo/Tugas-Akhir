@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
 
+@section('title','Admin || User')
+
 @section('main-content')
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
