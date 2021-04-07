@@ -99,6 +99,16 @@
               </p>
             </a>
           </li>
+          
+          <li class="nav-item">
+            <a href="/kontak_wa" id="user" class="nav-link klik_menu">
+              <i class="nav-icon fa fa-user"></i>
+              <p>
+                Pesan WhatsApp
+                <!-- <i class="right fas fa-angle-left"></i> -->
+              </p>
+            </a>
+          </li>
 
           <li class="nav-item">
               <button class="btn btn-danger" href="{{ route('logout') }}" onclick="event.preventDefault();

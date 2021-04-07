@@ -69,11 +69,13 @@ Route::post('transaksi/konfirmasi-transaksi/{id}', 'TransaksiController@konfirma
 Route::post('transaksi/batal-konfirmasi-transaksi/{id}', 'TransaksiController@batal_konfirmasi_transaksi');
 Route::get('transaksi/transaksi-detail/{id}','TransaksiController@pesanan_detail');
 
-// Order
-Route::get('/order/{type?}', 'OrderController@order');
-Route::post('toggledeliver/{orderId}', 'OrderController@toggledeliver')->name('toggle.deliver');
+Route::resource('kontak_wa','KontakWaController');
 
-// payment
-Route::get('shipping-info', 'CheckoutController@shipping')->name('checkout.shipping');
-Route::get('/payment', 'CheckoutController@payment')->name('checkout.payment');
-Route::post('/store-payment', 'CheckoutController@storePayment')->name('payment.store');
+// Order
+// Route::get('/order/{type?}', 'OrderController@order');
+// Route::post('toggledeliver/{orderId}', 'OrderController@toggledeliver')->name('toggle.deliver');
+
+// // payment
+// Route::get('shipping-info', 'CheckoutController@shipping')->name('checkout.shipping');
+// Route::get('/payment', 'CheckoutController@payment')->name('checkout.payment');
+// Route::post('/store-payment', 'CheckoutController@storePayment')->name('payment.store');

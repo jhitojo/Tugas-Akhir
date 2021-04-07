@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\User;
 use App\OrderDetail;
+use App\KontakWa;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -18,9 +19,17 @@ class TransaksiController extends Controller
     public function index()
     {
         $user = User::all();
+        $user_beda = Auth::user();
+
+        if($user_beda->id == 1){
+            $kontak_wa = KontakWa::all();
+        } else {
+            $kontak_wa = KontakWa::where('user_id', $user_beda->id)->get();
+        }
+        //    $kontak_wa = KontakWa::all();
+            // $kontak_wa = KontakWa::where('user_id', $user->id)->get();
         $order = Order::orderBy('tanggal','desc')->get();
-        
-        return view('admin.transaksi.index', compact('order'));
+        return view('admin.transaksi.index', compact('order','kontak_wa'));
     }
 
     public function konfirmasi_cod(Request $request, $id)
