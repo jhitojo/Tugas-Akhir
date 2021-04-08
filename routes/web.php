@@ -15,13 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 // Frontend
 Route::get('/', 'FrontendController@home');
-<<<<<<< HEAD
 Route::get('/home', 'FrontendController@home')->name('frontend.home');
 Route::get('/collection', 'FrontendController@collection')->name('frontend.collection');
-=======
-Route::get('/home', 'FrontendController@home')->name('home');
-// Route::get('/collection', 'FrontendController@collection')->name('frontend.collection');
->>>>>>> 5773fcd4e69f220c3fbf027bf6da3dd5a4414f83
 Route::get('/details/{id}', 'FrontendController@details');
 // Route::get('/category/{id}', 'FrontendController@show')->name('collection.show');
 Route::get('order/{id}', 'OrderController@index');

@@ -17,7 +17,7 @@
     <div class="container">
         <div class="shop-">
             <div class="row">
-            @foreach($product as $p)
+                @foreach($product as $p)
                 <div class="col" id="product{{$p->id}}">
                     <div class="product-item fix mt-3">
                         <div class="product-img-hover">
@@ -38,36 +38,38 @@
                                 <i class="on fa fa-star"></i>
                                 <i class="on fa fa-star-half-o"></i>
                             </div>
-<<<<<<< HEAD
                             <!-- Product Price -->
                             <div class="pro-price fix">
                                 <p><span class="new"><span style="text-decoration: line-through;">N</span>{{$p->price}}</span></p>
-=======
+                            </div>
                         </div>
-                        <div>
-                            <div class="product-icon">
-                            <a class="btn btn-warning" href="{{url('order')}}/{{$p->id}}">Beli</a>
+                    <!-- </div> -->
+<!-- ini yg baruuuuuu tambahan-->
+                        <!-- </div> -->
+                        <!-- <div>
+                        <div class="product-icon">
+                            <a class="btn btn-warning" href="{{url('order')}}/{{$p->id}}">Beli</a> -->
                                 
                                 <!-- <a class="btn btn-warning " href="{{route('cart.show',$p->id)}}"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                 </div>
                                 <div>
                               <a class="btn btn-warning" href="{{route('cart.buy',$p->id)}}">BUY NOW</a> -->
->>>>>>> 5773fcd4e69f220c3fbf027bf6da3dd5a4414f83
-                            </div>
+                            <!-- </div>
+                        </div> -->
+<!-- end tambahan-->
+                    <!-- <div> -->
+                        <div class="product-icon">
+                            <a class="btn btn-warning"  title="Masukkan ke Keranjang" href="{{route('cart.show',$p->id)}}">
+                                <i class="fa fa-shopping-cart"></i>
+                            </a>
+                            <span >
+                            <a class="btn btn-warning" href="{{route('cart.buy',$p->id)}}">Beli sekarang</a>
+                            </span>
                         </div>
-                </div>
-                <div>
-                    <div class="product-icon">
-                        <a class="btn btn-warning"  title="Masukkan ke Keranjang" href="{{route('cart.show',$p->id)}}">
-                            <i class="fa fa-shopping-cart"></i>
-                        </a>
-                        <span >
-                        <a class="btn btn-warning" href="{{route('cart.buy',$p->id)}}">Beli sekarang</a>
-                        </span>
                     </div>
                 </div>
-            </div>
             @endforeach
+            <!-- </div> -->
         </div>
     </div>
 </div>
