@@ -28,7 +28,8 @@ class TransaksiController extends Controller
         }
         //    $kontak_wa = KontakWa::all();
             // $kontak_wa = KontakWa::where('user_id', $user->id)->get();
-        $order = Order::orderBy('tanggal','desc')->get();
+        $order = Order::where('pesanan_milik', $user_beda->id)->get();
+        // $order = Order::orderBy('tanggal','desc')->get();
         return view('admin.transaksi.index', compact('order','kontak_wa'));
     }
 

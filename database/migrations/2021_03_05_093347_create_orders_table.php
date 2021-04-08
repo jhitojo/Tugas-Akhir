@@ -16,6 +16,8 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->unsignedBigInteger('pesanan_milik')->nullable();
+            $table->foreign('pesanan_milik')->references('id')->on('users')->onDelete('SET NULL');
             $table->date('tanggal');
             $table->integer('total_harga');
             $table->enum('status_cod', ['1', '2','3'])->default(1);
