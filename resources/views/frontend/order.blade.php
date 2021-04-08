@@ -40,7 +40,7 @@
                         <form action=" {{ url('order') }}/{{$product->id}}" method="POST">
                             {{csrf_field()}}
                            
-
+                            <!-- <input type="hidden" name="pesanan_milik" value="{{$product->user_id}}" /> -->
                             <div class="form-group pl-2 pr-2">
                                 <label for="jumlah">Jumlah</label>
                                 <input type="number" name="jumlah" required="required" class="form-control"

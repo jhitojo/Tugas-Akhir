@@ -53,6 +53,9 @@ class OrderController extends Controller
         {
             $order = new Order;
             $order->user_id = Auth::user()->id;
+            // $order->pesanan_milik = Product::user_id()->id;
+            $order->pesanan_milik = $product->user_id;
+            // $order->pesanan_milik;
             $order->tanggal = $tanggal;
             $order->status_pembayaran = 0;
             $order->total_harga = 0;
@@ -94,7 +97,7 @@ class OrderController extends Controller
         $order->total_harga = $order->total_harga + $product->price * $request->jumlah;
         $order->update();
 
-        return redirect ('home')->with('sukses', 'product Ditambahkan ke Keranjang');
+        return redirect ('checkout')->with('sukses', 'product Ditambahkan ke Keranjang');
         
     }
 
