@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Product;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AddressController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +18,11 @@ class AddressController extends Controller
     public function index()
     {
         //
+        $user = Auth::user();
+        $cartItems = Cart::content();
+        $category = Category::all();
+        $product = Product::all();
+        return view('cart.index',compact('product','category','cartItems','user'));
     }
 
     /**
@@ -35,8 +43,7 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        Auth::user()->address()->create($request->all());
-        return redirect()->route('checkout.payment');
+        //
     }
 
     /**
@@ -48,6 +55,9 @@ class AddressController extends Controller
     public function show($id)
     {
         //
+        $product = Product::find($id);
+        Cart::add($id,$product->name,1,$product->price);
+        return back();
     }
 
     /**
@@ -71,6 +81,8 @@ class AddressController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $update = Cart::update($id,$request->stock);
+        return back();
     }
 
     /**
@@ -82,5 +94,15 @@ class AddressController extends Controller
     public function destroy($id)
     {
         //
+        Cart::remove($id);
+        return back();
+    }
+
+    public function buynow($id)
+    {
+        //
+       $product = Product::find($id);
+       Cart::add($id,$product->name,1,$product->price);
+        return Redirect()->route('cart.index');
     }
 }

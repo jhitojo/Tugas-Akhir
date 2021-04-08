@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('SET NULL');
             $table->foreignId('user_id');
             $table->integer('stock')->default(1);
-            $table->float('price')->default(1);
+            $table->integer('price');
             $table->text('photo');
             $table->timestamps();
         });

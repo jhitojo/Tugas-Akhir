@@ -16,11 +16,18 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','no_wa'
     ];
 
+    // public function products(){
+    //     return $this->hasMany('App\Product','user_id','id');
+    // }
     public function products(){
-        return $this->hasMany('App\Product','user_id','id');
+        return $this->hasMany('App\Product');
+    }
+
+    public function kontak_wa(){
+        return $this->hasMany('App\KontakWa');
     }
 
     /**

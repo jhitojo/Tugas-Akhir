@@ -38,9 +38,21 @@
                                 <i class="on fa fa-star"></i>
                                 <i class="on fa fa-star-half-o"></i>
                             </div>
+<<<<<<< HEAD
                             <!-- Product Price -->
                             <div class="pro-price fix">
                                 <p><span class="new"><span style="text-decoration: line-through;">N</span>{{$p->price}}</span></p>
+=======
+                        </div>
+                        <div>
+                            <div class="product-icon">
+                            <a class="btn btn-warning" href="{{url('order')}}/{{$p->id}}">Beli</a>
+                                
+                                <!-- <a class="btn btn-warning " href="{{route('cart.show',$p->id)}}"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                </div>
+                                <div>
+                              <a class="btn btn-warning" href="{{route('cart.buy',$p->id)}}">BUY NOW</a> -->
+>>>>>>> 5773fcd4e69f220c3fbf027bf6da3dd5a4414f83
                             </div>
                         </div>
                 </div>

@@ -59,7 +59,8 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Auth::user()->address()->create($request->all());
+        return redirect()->route('checkout.payment');
     }
 
     /**
