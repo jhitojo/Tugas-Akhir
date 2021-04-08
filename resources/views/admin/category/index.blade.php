@@ -10,9 +10,24 @@
          </div>
      </div>
     <div class="card-header py-3">
+    @if (session('update'))
+        <div class="alert alert-success" role="alert">
+            {{ session('update') }}
+        </div>
+    @endif
+    @if (session('create'))
+        <div class="alert alert-primary" role="alert">
+            {{ session('create') }}
+        </div>
+    @endif
+    @if (session('delete'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('delete') }}
+        </div>
+    @endif
       <h6 class="m-0 font-weight-bold text-primary float-left">Category Lists</h6>
       <!-- <a href="category/create" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Category</a> -->
-      <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Category</a>
+      <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add Category"><i class="fas fa-plus"></i> Add Category</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">

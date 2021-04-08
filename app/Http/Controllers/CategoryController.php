@@ -55,7 +55,8 @@ class CategoryController extends Controller
         else{
             request()->session()->flash('error','Error occurred, Please try again!');
         }
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('create', 'Category berhasil di Tambahkan');
+    
     }
 
     /**
@@ -103,7 +104,8 @@ class CategoryController extends Controller
         else{
             request()->session()->flash('error','Error occurred, Please try again!');
         }
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('Update', 'Category berhasil di Edit');
+    
     }
 
     /**
@@ -123,6 +125,7 @@ class CategoryController extends Controller
         else{
             request()->session()->flash('error','Error while deleting category');
         }
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('delete', 'Category berhasil di Hapus!');
     }
+    
 }

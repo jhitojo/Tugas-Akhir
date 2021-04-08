@@ -50,7 +50,8 @@ class UserController extends Controller
             'password' => bcrypt($request->password)
         ]);
         
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('create', 'User berhasil di Tambahkan');
+    
     }
 
     /**
@@ -99,7 +100,8 @@ class UserController extends Controller
         else{
             request()->session()->flash('error','Error occurred, Please try again!');
         }
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('update', 'User berhasil di Edit');
+    
     }
 
     /**
@@ -119,6 +121,7 @@ class UserController extends Controller
         else{
             request()->session()->flash('error','Error while deleting user');
         }
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('delete', 'User berhasil di Hapus!');
+    
     }
 }

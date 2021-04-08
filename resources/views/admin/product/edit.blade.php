@@ -7,7 +7,7 @@
 <div class="card">
     <h5 class="card-header">Edit Product</h5>
     <div class="card-body">
-      <form method="post" action="{{route('product.update',$product->id)}}">
+      <form method="post"  action="{{route('product.update',$product->id)}}" enctype="multipart/form-data">
         @csrf 
         @method('PATCH')
         <div class="form-group">
@@ -27,16 +27,6 @@
               @endforeach
           </select>
         </div>
-       
-       
-
-
-       
-        
-        
-
-       
-
         <div class="form-group">
           <label for="stock">Stock <span class="text-danger">*</span></label>
           <input id="quantity" type="number" name="stock" min="0" placeholder="Enter quantity"  value="{{$product->stock}}" class="form-control">
@@ -44,8 +34,6 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-
-        
         <div class="form-group">
           <label for="price" class="col-form-label">Price <span class="text-danger">*</span></label>
           <input id="price" type="number" name="price" placeholder="Enter price"  value="{{$product->price}}" class="form-control">
@@ -57,13 +45,10 @@
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
           <div class="input-group">
-              <span class="input-group-btn">
-                  <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
-                  <i class="fas fa-image"></i> Choose
-                  </a>
-              </span>
-          <input id="thumbnail" class="form-control" type="text" name="photo" value="{{$product->photo}}">
-        </div>
+            <input type="file" name="photo" />
+              <img src="{{ URL::to('/')}}/photos/{{ $product->photo }}" class="img-thumbnail" width="100" alt="" >
+                <input type="hidden" name="hidden_photo" value="{{$product->photo}}" />
+          </div>
         <div id="holder" style="margin-top:15px;max-height:100px;"></div>
           @error('photo')
           <span class="text-danger">{{$message}}</span>

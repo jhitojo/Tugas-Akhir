@@ -10,6 +10,21 @@
          </div>
      </div>
     <div class="card-header py-3">
+    @if (session('update'))
+        <div class="alert alert-success" role="alert">
+            {{ session('update') }}
+        </div>
+    @endif
+    @if (session('create'))
+        <div class="alert alert-primary" role="alert">
+            {{ session('create') }}
+        </div>
+    @endif
+    @if (session('delete'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('delete') }}
+        </div>
+    @endif
       <h6 class="m-0 font-weight-bold text-primary float-left">user Lists</h6>
       <a href="{{route('user.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add user</a>
     </div>

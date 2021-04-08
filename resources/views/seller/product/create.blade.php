@@ -46,8 +46,8 @@
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 text-right">Select Image</label>
-          <div class="col-md-8">
+          <label class="">Select Image</label>
+          <div class="">
           <input type="file" name="photo" />
           </div>
         </div>        

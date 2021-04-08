@@ -118,7 +118,7 @@ class ProductController extends Controller
         // dd($form_data);
         Product::create($form_data);
 
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('create', 'Produk berhasil di Tambahkan');
 
         // $status=Product::create($data);
         // if($status){
@@ -177,7 +177,7 @@ class ProductController extends Controller
         // dd($form_data);
         Product::create($form_data);
 
-        return redirect()->route('product.index_seller');
+        return redirect()->route('product.index_seller')->with('create', 'Produk berhasil di Tambahkan');
 
         // $status=Product::create($data);
         // if($status){
@@ -263,47 +263,81 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $product=Product::findOrFail($id);
-        $this->validate($request,[
-            'name'=>'string|required',
-            'stock'=>"required|numeric",
-            'price'=>'required|numeric',
-            'cat_id'=>'required|exists:categories,id',
-            'photo'=>'string|required'
-        ]);
+        $photo_name = $request->hidden_photo;
+        $photo = $request->file('photo');
+        if ($photo != '')
+        {
+            $request->validate([
+                'name'=>'string|required',
+                'stock'=>"required|numeric",
+                'price'=>'required|numeric',
+                'cat_id'=>'required|exists:categories,id',
+                'photo'=>'required|image|max:2048' 
+            ]);
+            $photo_name = rand() . '.' . $photo->
+                getClientOriginalExtension();
+            $photo->move(public_path('photos'), $photo_name);
+        }
 
-        $data=$request->all();
-        // return $data;
-        $status=$product->fill($data)->save();
-        if($status){
-            request()->session()->flash('success','Product Successfully updated');
+        else
+        {
+            $request->validate([
+                'name'=>'string|required',
+                'stock'=>'required|numeric',
+                'price'=>'required|numeric',
+                'cat_id'=>'required|exists:categories,id'
+            ]);
         }
-        else{
-            request()->session()->flash('error','Please try again!!');
-        }
-        return redirect()->route('product.index');
+        $form_data = array(
+            'name'             => $request->name,
+            'stock'            => $request->stock,
+            'price'            => $request->price,
+            'cat_id'           => $request->cat_id,
+            'photo'            => $photo_name
+        );
+
+        Product::whereId($id)->update($form_data);
+        return redirect()->route('product.index')->with('update', 'Produk berhasil di Update');
     }
 
     public function update_seller(Request $request, $id)
     {
         $product=Product::findOrFail($id);
-        $this->validate($request,[
-            'name'=>'string|required',
-            'stock'=>"required|numeric",
-            'price'=>'required|numeric',
-            'cat_id'=>'required|exists:categories,id',
-            'photo'=>'string|required'
-        ]);
+        $photo_name = $request->hidden_photo;
+        $photo = $request->file('photo');
+        if ($photo != '')
+        {
+            $request->validate([
+                'name'=>'string|required',
+                'stock'=>"required|numeric",
+                'price'=>'required|numeric',
+                'cat_id'=>'required|exists:categories,id',
+                'photo'=>'required|image|max:2048' 
+            ]);
+            $photo_name = rand() . '.' . $photo->
+                getClientOriginalExtension();
+            $photo->move(public_path('photos'), $photo_name);
+        }
 
-        $data=$request->all();
-        // return $data;
-        $status=$product->fill($data)->save();
-        if($status){
-            request()->session()->flash('success','Product Successfully updated');
+        else
+        {
+            $request->validate([
+                'name'=>'string|required',
+                'stock'=>'required|numeric',
+                'price'=>'required|numeric',
+                'cat_id'=>'required|exists:categories,id'
+            ]);
         }
-        else{
-            request()->session()->flash('error','Please try again!!');
-        }
-        return redirect()->route('product.index_seller');
+        $form_data = array(
+            'name'             => $request->name,
+            'stock'            => $request->stock,
+            'price'            => $request->price,
+            'cat_id'           => $request->cat_id,
+            'photo'            => $photo_name
+        );
+
+        Product::whereId($id)->update($form_data);
+        return redirect()->route('product.index_seller')->with('update', 'Produk berhasil di Update');
     }
 
     /**
@@ -323,7 +357,7 @@ class ProductController extends Controller
         else{
             request()->session()->flash('error','Error while deleting product');
         }
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('delete', 'Produk berhasil di Hapus!');
     }
 
     public function destroy_seller($id)
@@ -337,6 +371,6 @@ class ProductController extends Controller
         else{
             request()->session()->flash('error','Error while deleting product');
         }
-        return redirect()->route('product.index_seller');
+        return redirect()->route('product.index_seller')->with('delete', 'Produk berhasil di Hapus!');
     }
 }

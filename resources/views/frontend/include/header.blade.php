@@ -10,6 +10,8 @@
     <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}" />
+    <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}" />
     <!-- Owl Carousel CSS -->
@@ -28,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/nivo-slider.css')}}" />
     <!-- Stylesheet CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
+    <!-- <link rel="stylesheet" type="text/css" href="{{asset('dist/css/tukuemas.css')}}" /> -->
     <!-- Responsive Stylesheet -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/responsive.css')}}" />
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">

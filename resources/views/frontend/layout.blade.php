@@ -2,81 +2,41 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <!-- @yield('title') -->
-
     @include('frontend.include.header')
 </head>
 <body>
-<!--Start Header Top Area-->
 @include('frontend.include.top-nav')
-<!--End Header Top Area-->
-<!--Start Header Area-->
-
-<!--End Header Area-->
-<!--start Slider Area-->
-<div class="menu-slider-area">
-    <div class="container"><!--Start Menu area-->
-        <div class="row"><!--Start Menu area-->
-
-        @include('frontend.include.side-nav')
 
 
-        @yield('content')
-        <!--Start Support Area-->
-            <!--Start Support Area-->
-            <!-- <div class="support-area section fix">
-                <div class="container">
-                    <div class="row">
-                        <div class="support col-sm-3">
-                            <i class="fa fa-thumbs-up"></i>
-                            <h3>High quality</h3>
-                            <p>Lorem ipsum dolor sit amet, conseetur adipiscing elit, consectetur</p>
-                        </div>
-                        <div class="support col-sm-3">
-                            <i class="fa fa-bus"></i>
-                            <h3>Fast Delivery</h3>
-                            <p>Lorem ipsum dolor sit amet, conseetur adipiscing elit, consectetur</p>
-                        </div>
-                        <div class="support col-sm-3">
-                            <i class="fa fa-phone"></i>
-                            <h3>24/7 support</h3>
-                            <p>Lorem ipsum dolor sit amet, conseetur adipiscing elit, consectetur</p>
-                        </div>
-                        <div class="support col-sm-3">
-                            <i class="fa fa-random"></i>
-                            <h3>14 - Day Returns</h3>
-                            <p>Lorem ipsum dolor sit amet, conseetur adipiscing elit, consectetur</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @include('frontend.include.footer') -->
-            <!--Start Footer top area-->
-        <!--End Footer Area-->
+@include('frontend.include.side-nav')
 
-            <!-- jQuery 2.1.4 -->
 
-            <script type="text/javascript" src="{{asset('js/jquery-2.1.4.min.js')}}"></script>
-            <script type="text/javascript" src="{{asset('js/checkout.js')}}"></script>
-            <!-- Bootstrap JS -->
-            <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
-            <!-- Owl Carousel JS -->
-            <script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>
-            <!--countTo JS -->
-            <script type="text/javascript" src="{{asset('js/jquery.countTo.js')}}"></script>
-            <!-- mixitup JS -->
-            <script type="text/javascript" src="{{asset('js/jquery.mixitup.min.js')}}"></script>
-            <!-- magnific popup JS -->
-            <script type="text/javascript" src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
-            <!-- Appear JS -->
-            <script type="text/javascript" src="{{asset('js/jquery.appear.js')}}"></script>
-            <!-- MeanMenu JS -->
-            <script type="text/javascript" src="{{asset('js/jquery.meanmenu.min.js')}}"></script>
-            <!-- Nivo Slider JS -->
-            <script type="text/javascript" src="{{asset('js/jquery.nivo.slider.pack.js')}}"></script>
-            <!-- Scrollup JS -->
-            <script type="text/javascript" src="{{asset('js/jquery.scrollup.min.js')}}"></script>
-            <!-- simpleLens JS --> <script type="text/javascript">
+@yield('content')
+@include('frontend.include.footer')
+
+
+
+<script type="text/javascript" src="{{asset('js/jquery-2.1.4.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/checkout.js')}}"></script>
+<!-- Bootstrap JS -->
+<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
+<!-- Owl Carousel JS -->
+<script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>
+<!--countTo JS -->
+<script type="text/javascript" src="{{asset('js/jquery.countTo.js')}}"></script>
+<!-- mixitup JS -->
+<script type="text/javascript" src="{{asset('js/jquery.mixitup.min.js')}}"></script>
+<!-- magnific popup JS -->
+<script type="text/javascript" src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
+<!-- Appear JS -->
+<script type="text/javascript" src="{{asset('js/jquery.appear.js')}}"></script>
+<!-- MeanMenu JS -->
+<script type="text/javascript" src="{{asset('js/jquery.meanmenu.min.js')}}"></script>
+<!-- Nivo Slider JS -->
+<script type="text/javascript" src="{{asset('js/jquery.nivo.slider.pack.js')}}"></script>
+<!-- Scrollup JS -->
+<script type="text/javascript" src="{{asset('js/jquery.scrollup.min.js')}}"></script>
+<!-- simpleLens JS --> <script type="text/javascript">
 //                function test(a) {
 //                    var pro = "#product"+$(a).data('id');
 //                    var p = $(pro);
@@ -129,34 +89,34 @@
 //                    localStorage.setItem("pushes", JSON.stringify(carts));
 //                    $('#tr-'+a).remove();
 //                }
-                $('.product-icon').find('a').click(function (event){
-                    event.preventDefault();
-                    $.ajax({
-                        url:$(this).attr('href'),
-                        success:function(response){
-                           alert('items added');
-                           //console.log(response);
+    $('.product-icon').find('a').click(function (event){
+        event.preventDefault();
+        $.ajax({
+            url:$(this).attr('href'),
+            success:function(response){
+                alert('items added');
+                //console.log(response);
 
-                            }
-                    });
-                    return false;
-                });
-
-
+                }
+        });
+        return false;
+    });
 
 
-            </script>
-            <script type="text/javascript" src="{{asset('js/jquery.simpleLens.min.js')}}"></script>
-            <!-- Price Slider JS -->
-            <script type="text/javascript" src="{{asset('js/jquery-price-slider.js')}}"></script>
-            <!-- WOW JS -->
-            <script type="text/javascript" src="{{asset('js/wow.min.js')}}"></script>
-            <script>
-                new WOW().init();
-            </script>
-            <!-- Main JS -->
-            <script type="text/javascript" src="js/main.js"></script>
-            <!-- If you're using Stripe for payments -->
+
+
+</script>
+<script type="text/javascript" src="{{asset('js/jquery.simpleLens.min.js')}}"></script>
+<!-- Price Slider JS -->
+<script type="text/javascript" src="{{asset('js/jquery-price-slider.js')}}"></script>
+<!-- WOW JS -->
+<script type="text/javascript" src="{{asset('js/wow.min.js')}}"></script>
+<script>
+    new WOW().init();
+</script>
+<!-- Main JS -->
+<script type="text/javascript" src="js/main.js"></script>
+<!-- If you're using Stripe for payments -->
 
 
 

@@ -1,4 +1,13 @@
-<div class="footer-top-area fix">
+
+<footer class="footer mt-5">
+    <div class="row">
+        <div class="col text-center mt-5 mb-5">
+        <strong class="text-white">Copyright &copy; 2021 <a>Tukuemas.com</a></strong>
+        </div>
+    </div>
+</footer>
+
+<!-- <div class="footer-top-area fix">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-3">
@@ -86,7 +95,9 @@
             </div>
         </div>
     </div>
-</div><!--Start Footer top area-->
+</div> -->
+
+<!--Start Footer top area-->
 <!--Start Footer Area-->
 <!-- <div class="footer-area fix">
     <div class="container">
