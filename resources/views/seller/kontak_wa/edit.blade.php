@@ -1,13 +1,13 @@
-@extends('admin.layouts.master')
+@extends('seller.layouts.master')
 
-@section('title','Admin || Edit Pesan Whatsapp')
+@section('title','Seller || Edit Pesan Whatsapp')
 
 @section('main-content')
 
 <div class="card">
     <h5 class="card-header">Edit Pesan Whatsapp</h5>
     <div class="card-body">
-      <form method="post" action="{{route('kontak_wa.update',$kontak_wa->id)}}">
+      <form method="post" action="{{route('kontak_wa.update_seller',$kontak_wa->id)}}">
         @csrf 
         @method('PATCH')
         <div class="form-group">

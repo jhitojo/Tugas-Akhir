@@ -12,6 +12,10 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}" />
     <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Herr Von Muellerhoff');
+  </style>
+
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}" />
     <!-- Owl Carousel CSS -->

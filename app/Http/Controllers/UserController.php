@@ -47,7 +47,8 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
-            'password' => bcrypt($request->password)
+            'password' => bcrypt($request->password),
+            'no_wa' => $request->no_wa
         ]);
         
         return redirect()->route('user.index')->with('create', 'User berhasil di Tambahkan');

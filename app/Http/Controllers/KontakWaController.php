@@ -35,6 +35,22 @@ class KontakWaController extends Controller
         // return view('admin.product.index')->with('products',$products);
     }
 
+    public function index_seller()
+    {
+        //
+        $user = Auth::user();
+
+        if($user->id == 1){
+            $kontak_wa = KontakWa::all();
+        } else {
+            $kontak_wa = KontakWa::where('user_id', $user->id)->get();
+        }
+        $edit = 0;
+        // return $kontak_wa;
+        return view('seller.kontak_wa.index', compact('kontak_wa','user','edit'));
+        // return view('admin.product.index')->with('products',$products);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -51,6 +67,20 @@ class KontakWaController extends Controller
         $edit = 0;
         // return $category;
         return view('admin.kontak_wa.create', compact('user','edit'));
+        // return view('admin.product.create')->with('categories',$category);
+    }
+
+    public function create_seller()
+    {
+        $user = Auth::user();
+        if($user->id == 1) {
+            $kontak_wa = KontakWa::all();
+        } else {
+           $kontak_wa = KontakWa::where('user_id', $user->id)->get();
+        }
+        $edit = 0;
+        // return $category;
+        return view('seller.kontak_wa.create', compact('user','edit'));
         // return view('admin.product.create')->with('categories',$category);
     }
 
@@ -88,7 +118,24 @@ class KontakWaController extends Controller
         else{
             request()->session()->flash('error','Error occurred, Please try again!');
         }
-        return redirect()->route('kontak_wa.index');
+        return redirect()->route('kontak_wa.index')->with('create', 'Pesan Whatsapp berhasil di Tambahkan');
+    }
+
+    public function store_seller(Request $request)
+    {
+        $this->validate($request,[
+            'isi_pesan'=>'string|required',
+        ]);
+        $data= $request->all();
+        
+        $status=KontakWa::create($data);
+        if($status){
+            request()->session()->flash('success','Category successfully added');
+        }
+        else{
+            request()->session()->flash('error','Error occurred, Please try again!');
+        }
+        return redirect()->route('kontak_wa.index_seller')->with('create', 'Pesan Whatsapp berhasil di Tambahkan');
     }
 
     /**
@@ -120,6 +167,19 @@ class KontakWaController extends Controller
                     ->with('items',$items);
     }
 
+    public function edit_seller($id)
+    {
+        //
+        $user = Auth::user();
+        $users = User::all();
+        $kontak_wa= KontakWa::findOrFail($id);
+        $items=$kontak_wa::where('id',$id)->get();
+        // return $items;
+        return view('seller.kontak_wa.edit')->with('kontak_wa',$kontak_wa)
+                    ->with('items',$items);
+    }
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -137,15 +197,36 @@ class KontakWaController extends Controller
 
         $data=$request->all();
         // return $data;
-        $status=$product->fill($data)->save();
+        $status=$kontak_wa->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Product Successfully updated');
+            request()->session()->flash('success','Pesan Whatsapp Successfully updated');
         }
         else{
             request()->session()->flash('error','Please try again!!');
         }
-        return redirect()->route('kontak_wa.index');
+        return redirect()->route('kontak_wa.index')->with('update', 'Pesan Whatsapp berhasil di Edit');
     }
+
+    public function update_seller(Request $request, $id)
+    {
+        //
+        $kontak_wa=KontakWa::findOrFail($id);
+        $this->validate($request,[
+            'isi_pesan'=>'string|required',
+        ]);
+
+        $data=$request->all();
+        // return $data;
+        $status=$kontak_wa->fill($data)->save();
+        if($status){
+            request()->session()->flash('success','Pesan Whatsapp Successfully updated');
+        }
+        else{
+            request()->session()->flash('error','Please try again!!');
+        }
+        return redirect()->route('kontak_wa.index_seller')->with('update', 'Pesan Whatsapp berhasil di Edit');
+    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -165,6 +246,21 @@ class KontakWaController extends Controller
         else{
             request()->session()->flash('error','Error while deleting Pesan');
         }
-        return redirect()->route('kontak_wa.index');
+        return redirect()->route('kontak_wa.index')->with('delete', 'Pesan Whatsapp berhasil di Hapus !');
+    }
+
+    public function destroy_seller($id)
+    {
+        //
+        $kontak_wa=KontakWa::findOrFail($id);
+        $status=$kontak_wa->delete();
+        
+        if($status){
+            request()->session()->flash('success','Pesan successfully deleted');
+        }
+        else{
+            request()->session()->flash('error','Error while deleting Pesan');
+        }
+        return redirect()->route('kontak_wa.index_seller')->with('delete', 'Pesan Whatsapp berhasil di Hapus !');
     }
 }

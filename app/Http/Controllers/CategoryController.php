@@ -104,7 +104,7 @@ class CategoryController extends Controller
         else{
             request()->session()->flash('error','Error occurred, Please try again!');
         }
-        return redirect()->route('category.index')->with('Update', 'Category berhasil di Edit');
+        return redirect()->route('category.index')->with('update', 'Category berhasil di Edit');
     
     }
 

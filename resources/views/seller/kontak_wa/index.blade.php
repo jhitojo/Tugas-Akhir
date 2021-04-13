@@ -1,6 +1,6 @@
-@extends('admin.layouts.master')
+@extends('seller.layouts.master')
 
-@section('title','Admin || User')
+@section('title','Seller || Pesan Whatsapp')
 
 @section('main-content')
  <!-- DataTales Example -->
@@ -25,18 +25,18 @@
             {{ session('delete') }}
         </div>
     @endif
-      <h6 class="m-0 font-weight-bold text-primary float-left">user Lists</h6>
-      <a href="{{route('user.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add user</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Pesan WhatsApp</h6>
+      <!-- <a href="category/create" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Category</a> -->
+      <a href="{{route('kontak_wa.create_seller')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Tambah Pesan WhatsApp</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
-        @if(count($users)>0)
+        @if(count($kontak_wa)>0)
         <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
               <th>S.N.</th>
               <th>Nama</th>
-              <th>Nomor Whatsapp</th>
               <th>Action</th>
               </tr>
           </thead>
@@ -44,23 +44,21 @@
             <tr>
               <th>S.N.</th>
               <th>Nama</th>
-              <th>Nomor Whatsapp</th>
               <th>Action</th>
               </tr>
           </tfoot>
           <tbody>
            
-            @foreach($users as $user)   
+            @foreach($kontak_wa as $kontak_wa)   
                 <tr>
-                    <td>{{$user->id}}</td>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->no_wa}}</td>
+                    <td>{{$kontak_wa->id}}</td>
+                    <td>{{$kontak_wa->isi_pesan}}</td>
                     <td>
-                        <a href="{{route('user.edit',$user->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                    <form method="POST" action="{{route('user.destroy',[$user->id])}}">
+                        <a href="{{route('kontak_wa.edit_seller',$kontak_wa->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                    <form method="POST" action="{{route('kontak_wa.destroy_seller',[$kontak_wa->id])}}">
                       @csrf 
                       @method('delete')
-                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$user->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$kontak_wa->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                     {{-- Delete Modal --}}
@@ -74,7 +72,7 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                              <form method="post" action="{{ route('users.destroy',$user->id) }}">
+                              <form method="post" action="{{ route('categorys.destroy_seller',$user->id) }}">
                                 @csrf 
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
@@ -89,7 +87,7 @@
         </table>
         
         @else
-          <h6 class="text-center">No Users found!!! Please create User</h6>
+          <h6 class="text-center"> Pesan Whatsapp tidak ditemukan!!! Tolong buat Pesan Whatsapp terlebih dahulu</h6>
         @endif
       </div>
     </div>

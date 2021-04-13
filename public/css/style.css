@@ -5656,6 +5656,9 @@ Version:1.0
 ===============================*/
 .footer {
     background: #222;
+    position: absolute;
+    width: 100%;
+    clear: both;
     display: block;
 }
 

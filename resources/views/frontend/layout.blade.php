@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     @include('frontend.include.header')
+    <style>
+    html, body {
+        margin:0;
+        padding:0;
+        height:100%;
+    }
+
+    .container {
+        min-height: 100%;
+        position:relative;
+    }   
+    
+    </style>
 </head>
 <body>
 @include('frontend.include.top-nav')
 
 
-@include('frontend.include.side-nav')
+<!-- @include('frontend.include.side-nav') -->
 
 
 @yield('content')

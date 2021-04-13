@@ -1,18 +1,16 @@
 @extends('admin.layouts.master')
 
-@section('title','Admin || Edit Pesan Whatsapp')
-
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Edit Pesan Whatsapp</h5>
+    <h5 class="card-header">Edit Category</h5>
     <div class="card-body">
-      <form method="post" action="{{route('kontak_wa.update',$kontak_wa->id)}}">
+      <form method="post" action="{{route('category.update',$category->id)}}">
         @csrf 
         @method('PATCH')
         <div class="form-group">
           <label for="inputname" class="col-form-label">Nama <span class="text-danger">*</span></label>
-          <input id="inputname" type="text" name="isi_pesan" placeholder="Enter isi_pesan"  value="{{$kontak_wa->isi_pesan}}" class="form-control">
+          <input id="inputname" type="text" name="name" placeholder="Enter name"  value="{{$category->name}}" class="form-control">
           @error('name')
           <span class="text-danger">{{$message}}</span>
           @enderror

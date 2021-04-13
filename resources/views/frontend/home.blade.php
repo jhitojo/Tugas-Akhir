@@ -6,7 +6,7 @@
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-white">
     <div class="col-md-12 p-lg-5 mx-auto my-5">
         <img src="{{asset('/dist/img/logo.png')}}" style=" width:10%;" alt="" />
-            <h1 class="display-4 font-weight-normal">Tukuemas</h1>
+            <h1 class="display-4 font-weight-normal" style="text-align: center ; font-family: Herr Von Muellerhoff">Tukuemas</h1>
         <p class="lead font-weight-normal">Cari Emas - Ketemuan COD - Deal</p>
     <!-- <a class="btn btn-outline-secondary" href="#">Coming soon</a> -->
     </div>
@@ -43,34 +43,15 @@
                                 <p><span class="new"><span style="text-decoration: line-through;">N</span>{{$p->price}}</span></p>
                             </div>
                         </div>
-                    <!-- </div> -->
-<!-- ini yg baruuuuuu tambahan-->
-                        <!-- </div> -->
-                        <!-- <div>
-                        <div class="product-icon">
-                            <a class="btn btn-warning" href="{{url('order')}}/{{$p->id}}">Beli</a> -->
-                                
-                                <!-- <a class="btn btn-warning " href="{{route('cart.show',$p->id)}}"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                                <div>
-                              <a class="btn btn-warning" href="{{route('cart.buy',$p->id)}}">BUY NOW</a> -->
-                            <!-- </div>
-                        </div> -->
-<!-- end tambahan-->
-                    <!-- <div> -->
-                        <div class="product-icon">
-                            <a class="btn btn-warning"  title="Masukkan ke Keranjang" href="{{route('cart.show',$p->id)}}">
-                                <i class="fa fa-shopping-cart"></i>
-                            </a>
-                            <span >
-                            <a class="btn btn-warning" href="{{route('cart.buy',$p->id)}}">Beli sekarang</a>
-                            </span>
+                        <div class="product-icon text-center">
+                            <a class="btn btn-warning" href="{{url('/order')}}/{{$p->id}}">Beli</a> 
                         </div>
                     </div>
                 </div>
             @endforeach
-            <!-- </div> -->
+            </div>
         </div>
     </div>
 </div>
+    
 @endsection

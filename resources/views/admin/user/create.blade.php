@@ -32,7 +32,17 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
+        <div class="form-group"> 
+            <label for="no_wa" class="col-form-label">{{ __('Nomer WhatsApp') }} <span class="text-danger">*</span></label>
+            <!-- <div class="col-md-6"> -->
+            <input id="no_wa" type="no_wa" class="form-control @error('no_wa') is-invalid @enderror" name="no_wa" value="{{ old('no_wa') }}" required autocomplete="no_wa">
 
+            @error('no_wa')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            </div>
         <div class="form-group">
           <label for="role">Role <span class="text-danger">*</span></label>
           <select name="role" id="role" class="form-control">

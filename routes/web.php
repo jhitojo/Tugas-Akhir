@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // Frontend
 Route::get('/', 'FrontendController@home');
-Route::get('/home', 'FrontendController@home')->name('frontend.home');
+Route::get('/home', 'FrontendController@home')->name('home');
 Route::get('/collection', 'FrontendController@collection')->name('frontend.collection');
 Route::get('/details/{id}', 'FrontendController@details');
 // Route::get('/category/{id}', 'FrontendController@show')->name('collection.show');
@@ -64,12 +64,23 @@ Route::resource('/category','CategoryController')->middleware('cekstatus');
 
 
 Route::get('/transaksi', 'TransaksiController@index');
+Route::get('/transaksi_seller', 'TransaksiController@index_seller');
 Route::post('transaksi/konfirmasi-cod/{id}', 'TransaksiController@konfirmasi_cod');
+Route::post('transaksi_seller/konfirmasi-cod/{id}', 'TransaksiController@konfirmasi_cod_seller');
 Route::post('transaksi/konfirmasi-transaksi/{id}', 'TransaksiController@konfirmasi_transaksi');
+Route::post('transaksi_seller/konfirmasi-transaksi/{id}', 'TransaksiController@konfirmasi_transaksi_seller');
 Route::post('transaksi/batal-konfirmasi-transaksi/{id}', 'TransaksiController@batal_konfirmasi_transaksi');
+Route::post('transaksi_seller/batal-konfirmasi-transaksi/{id}', 'TransaksiController@batal_konfirmasi_transaksi_seller');
 Route::get('transaksi/transaksi-detail/{id}','TransaksiController@pesanan_detail');
+Route::get('transaksi_seller/transaksi-detail/{id}','TransaksiController@pesanan_detail_seller');
 
 Route::resource('kontak_wa','KontakWaController');
+Route::get('/kontak_wa_seller','KontakWaController@index_seller')->name('kontak_wa.index_seller');
+Route::get('/kontak_wa_create_seller','KontakWaController@create_seller')->name('kontak_wa.create_seller');
+Route::post('/kontak_wa_store_seller','KontakWaController@store_seller')->name('kontak_wa.store_seller');
+Route::get('/kontak_wa_edit_seller/{id}','KontakWaController@edit_seller')->name('kontak_wa.edit_seller');
+Route::PATCH('/kontak_wa_update_seller/{id}','KontakWaController@update_seller')->name('kontak_wa.update_seller');
+Route::delete('/kontak_wa_destroy_seller/{id}','KontakWaController@destroy_seller')->name('kontak_wa.destroy_seller');
 
 // Order
 // Route::get('/order/{type?}', 'OrderController@order');
