@@ -35,14 +35,14 @@
         <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
+              <th>No</th>
               <th>Nama</th>
               <th>Action</th>
               </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
+              <th>No</th>
               <th>Nama</th>
               <th>Action</th>
               </tr>
@@ -51,7 +51,7 @@
            
             @foreach($categories as $category)   
                 <tr>
-                    <td>{{$category->id}}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{$category->name}}</td>
                     <td>
                         <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>

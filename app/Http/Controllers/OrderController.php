@@ -97,7 +97,7 @@ class OrderController extends Controller
         $order->total_harga = $order->total_harga + $product->price * $request->jumlah;
         $order->update();
 
-        return redirect ('checkout')->with('sukses', 'product Ditambahkan ke Keranjang');
+        return redirect ('checkout')->with('sukses', 'Product Ditambahkan');
         
     }
 

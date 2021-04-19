@@ -18,7 +18,7 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        // $user = User::all();
         $user_beda = Auth::user();
 
         if($user_beda->id == 1){
@@ -35,7 +35,7 @@ class TransaksiController extends Controller
 
     public function index_seller()
     {
-        $user = User::all();
+        // $user = User::all();
         $user_beda = Auth::user();
 
         if($user_beda->id == 1){

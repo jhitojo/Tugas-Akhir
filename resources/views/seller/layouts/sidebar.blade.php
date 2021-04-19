@@ -46,7 +46,7 @@
             <a href="/transaksi_seller" id="user" class="nav-link klik_menu">
               <i class="nav-icon fa fa-credit-card"></i>
               <p>
-                Transaksi
+                Pesanan
                 <!-- <i class="right fas fa-angle-left"></i> -->
               </p>
             </a>

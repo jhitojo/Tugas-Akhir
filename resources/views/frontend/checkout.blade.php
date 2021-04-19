@@ -1,4 +1,4 @@
-@extends('frontend.layout')
+@extends('frontend.layout2')
 
 @section('title','Tukuemas || Checkout')
 
@@ -15,7 +15,7 @@
                 @if(!empty($order))
                 <div class="card mt-3 mb-3">
                     <div class="card-header">
-                        <h4 class="card-title">Keranjang Belanja</h4>
+                        <h4 class="card-title">Detail Pesanan</h4>
                         <p align="right">Tanggal Pesan: {{date('d M Y', strtotime($order->tanggal))}}</p>
                     </div>
                     <div class="card-body">

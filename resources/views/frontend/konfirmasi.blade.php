@@ -1,4 +1,5 @@
-@extends('frontend.layout')
+
+@extends('frontend.layout3')
 
 @section('title','Tukuemas || Konfirmasi')
 

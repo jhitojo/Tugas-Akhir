@@ -1,4 +1,5 @@
 @extends('frontend.layout')
+@extends('frontend.layout2')
 
 @section('title','Tukuemas || Order')
 
@@ -49,7 +50,7 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-warning mt-3 ml-2">
-                                    <i class="fas fa-shopping-cart mr-2"></i>Tambah ke Keranjang
+                                    <i class="fas fa-shopping-cart mr-2"></i>Beli
                                 </button>
                             </form>
                             <!-- <hr> -->

@@ -35,14 +35,14 @@
         <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
+              <th>No</th>
               <th>Nama</th>
               <th>Action</th>
               </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
+              <th>No</th>
               <th>Nama</th>
               <th>Action</th>
               </tr>
@@ -51,7 +51,7 @@
            
             @foreach($kontak_wa as $kontak_wa)   
                 <tr>
-                    <td>{{$kontak_wa->id}}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{$kontak_wa->isi_pesan}}</td>
                     <td>
                         <a href="{{route('kontak_wa.edit',$kontak_wa->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>

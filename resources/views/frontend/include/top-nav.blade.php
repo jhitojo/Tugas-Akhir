@@ -19,6 +19,11 @@
                             <a href="{{route('dashboard_seller.index')}}"  class="text-white" target="">Dashboard</a>
                       
                     @endif
+
+                    <i class="fa fa-box-full mr-1 " style="color: #ffbd29;"></i> 
+                    <a href="/konfirmasi"  class="text-white" target="">Status Cod</a>
+                      
+
                         <i class="fa fa-power-off mr-1 ml-3" style="color: #ffbd29;"></i> 
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();

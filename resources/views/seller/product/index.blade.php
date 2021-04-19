@@ -35,7 +35,7 @@
         <table class="table table-bordered" id="product-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
+              <th>No</th>
               <th>Name</th>
               <th>Category</th>
               <th>Stock</th>
@@ -46,7 +46,7 @@
           </thead>
           <tfoot>
             <tr>
-            <th>S.N.</th>
+            <th>No</th>
               <th>Name</th>
               <th>Category</th>
               <th>Stock</th>
@@ -59,7 +59,7 @@
            
             @foreach($products as $product)   
                 <tr>
-                    <td>{{$product->id}}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{$product->name}}</td>
                     <td>{{$product->cat_info['name']}} </td>
                     <td>
@@ -69,7 +69,7 @@
                       <span class="badge badge-danger">{{$product->stock}}</span>
                       @endif
                     </td>
-                    <td>{{$product->price}} /-</td>
+                    <td> Rp. {{number_format($product->price)}}</td>
                     <td>
                         @if($product->photo)
                             @php 

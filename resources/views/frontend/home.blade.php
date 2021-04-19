@@ -31,16 +31,10 @@
                                 <a href="details/{{$p->id}}">{{$p->name}}</a>
                             </div>
                             <!-- Product Ratting -->
-                            <div class="pro-ratting">
-                                <i class="on fa fa-star"></i>
-                                <i class="on fa fa-star"></i>
-                                <i class="on fa fa-star"></i>
-                                <i class="on fa fa-star"></i>
-                                <i class="on fa fa-star-half-o"></i>
-                            </div>
+                            
                             <!-- Product Price -->
                             <div class="pro-price fix">
-                                <p><span class="new"><span style="text-decoration: line-through;">N</span>{{$p->price}}</span></p>
+                                <p><span class="new"><span>Rp</span>{{number_format($p->price)}}</span></p>
                             </div>
                         </div>
                         <div class="product-icon text-center">

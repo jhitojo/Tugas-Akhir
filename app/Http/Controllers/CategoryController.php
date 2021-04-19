@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    function __construct()
-    {
-      $this->middleware('cekstatus')->except('index');
-    }
+    // function __construct()
+    // {
+    //   $this->middleware('cekstatus')->except('index');
+    // }
 
     /**
      * Display a listing of the resource.

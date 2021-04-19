@@ -107,7 +107,10 @@
       <div class="modal-body">
       @foreach ($kontak_wa as $wa)
         <p> {{$wa->isi_pesan}} </p> 
+        @if(!empty($p))
         <a href=" https://api.whatsapp.com/send?phone={{$p->user->no_wa}}&text={{$wa->isi_pesan}}">Kirim</a>
+        @else
+        @endif
       @endforeach
       </div>
       <div class="modal-footer">
