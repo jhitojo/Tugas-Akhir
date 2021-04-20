@@ -114,6 +114,19 @@ class OrderController extends Controller
         
     }
 
+    public function checkoutq()
+    {
+        
+        $order = Order::where('user_id', Auth::user()->id)->where('status_pembayaran',0)->first();
+        if (!empty($order))
+        {
+            $order_detail = OrderDetail::where('order_id',$order->id)->get();
+            return view('frontend.checkoutq', compact('order','order_detail'));
+        }
+        return view('frontend.checkout');
+        
+    }
+
     public function delete($id)
     {
         $order_detail = OrderDetail::where('id',$id)->first();

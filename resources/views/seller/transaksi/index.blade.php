@@ -66,8 +66,15 @@
         </td>
 
         <td>
-          @if ($p->status_pembayaran == 0)
-          <form action="transaksi_seller/konfirmasi-transaksi/{{$p->id}}" method="post">
+        @if (($p->status_pembayaran == 0) && ($p->status_cod == 1))
+          <form action="transaksi/konfirmasi-transaksi/{{$p->id}}" method="post">
+            {{ csrf_field() }}
+            <button type="hidden" name="status_pembayaran" value="1" class="btn btn-warning btn-xs w-100 mb-2 disabled">
+              Konfirmasi
+            </button>
+          </form>
+          @elseif (($p->status_pembayaran == 0) && ($p->status_cod == 2))
+          <form action="transaksi/konfirmasi-transaksi/{{$p->id}}" method="post">
             {{ csrf_field() }}
             <button type="hidden" name="status_pembayaran" value="1" class="btn btn-warning btn-xs w-100 mb-2">
               Konfirmasi
@@ -75,7 +82,7 @@
           </form>
           @else
           <p class="text-success text-xs text-center mb-2"><i class="fas fa-check mr-2"></i>Dikonfirmasi</p>
-          <form action="transaksi_seller/batal-konfirmasi-transaksi/{{$p->id}}" method="post">
+          <form action="transaksi/batal-konfirmasi-transaksi/{{$p->id}}" method="post">
             {{ csrf_field() }}
             <button type="hidden" name="status_pembayaran" value="0" class="btn btn-danger btn-xs w-100 mb-2">
               Batal
@@ -105,17 +112,23 @@
         </button>
       </div>
       <div class="modal-body">
-      @foreach ($kontak_wa as $wa)
-        <p> {{$wa->isi_pesan}} </p> 
-        @if(!empty($p))
-        <a href=" https://api.whatsapp.com/send?phone={{$p->user->no_wa}}&text={{$wa->isi_pesan}}">Kirim</a>
-        @else
-        @endif
-      @endforeach
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="row">
+        @foreach ($kontak_wa as $wa)
+          <div class="col-md-10">
+          <p> {{$wa->isi_pesan}} </p> 
+          </div>
+          @if(!empty($p))
+          <div class="col-md-2">
+          <a href=" https://api.whatsapp.com/send?phone={{$p->user->no_wa}}&text={{$wa->isi_pesan}}">
+          <button class="btn btn-success">
+          Kirim
+          </button>
+          </a>
+          </div>
+          @else
+          @endif
+        @endforeach
+        </div>
       </div>
     </div>
   </div>

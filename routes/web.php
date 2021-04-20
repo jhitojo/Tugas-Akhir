@@ -22,6 +22,7 @@ Route::get('/details/{id}', 'FrontendController@details');
 Route::get('order/{id}', 'OrderController@index');
 Route::post('order/{id}', 'OrderController@order');
 Route::get('checkout', 'OrderController@checkout');
+Route::get('/checkoutq', 'OrderController@checkoutq');
 Route::delete('checkout/{id}', 'OrderController@delete');
 Route::get('konfirmasi', 'OrderController@konfirmasi_ubah');
 Route::post('konfirmasiyes', 'OrderController@konfirmasi_update');

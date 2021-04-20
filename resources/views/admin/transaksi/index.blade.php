@@ -66,7 +66,14 @@
         </td>
 
         <td>
-          @if ($p->status_pembayaran == 0)
+          @if (($p->status_pembayaran == 0) && ($p->status_cod == 1))
+          <form action="transaksi/konfirmasi-transaksi/{{$p->id}}" method="post">
+            {{ csrf_field() }}
+            <button type="hidden" name="status_pembayaran" value="1" class="btn btn-warning btn-xs w-100 mb-2 disabled">
+              Konfirmasi
+            </button>
+          </form>
+          @elseif (($p->status_pembayaran == 0) && ($p->status_cod == 2))
           <form action="transaksi/konfirmasi-transaksi/{{$p->id}}" method="post">
             {{ csrf_field() }}
             <button type="hidden" name="status_pembayaran" value="1" class="btn btn-warning btn-xs w-100 mb-2">
@@ -105,14 +112,25 @@
         </button>
       </div>
       <div class="modal-body">
-      @foreach ($kontak_wa as $wa)
-        <p>{{$wa->isi_pesan}}</p> <a href=" https://api.whatsapp.com/send?phone={{$p->user->no_wa}}&text={{$wa->isi_pesan}}">Kirim</a>
-      @endforeach
+      <div class="row">
+        @foreach ($kontak_wa as $wa)
+          <div class="col-md-10">
+          <p> {{$wa->isi_pesan}} </p> 
+          </div>
+          @if(!empty($p))
+          <div class="col-md-2">
+          <a href=" https://api.whatsapp.com/send?phone={{$p->user->no_wa}}&text={{$wa->isi_pesan}}">
+          <button class="btn btn-success">
+          Kirim
+          </button>
+          </a>
+          </div>
+          @else
+          @endif
+        @endforeach
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      
     </div>
   </div>
 </div>

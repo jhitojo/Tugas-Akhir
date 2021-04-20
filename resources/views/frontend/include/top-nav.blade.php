@@ -12,16 +12,18 @@
                    
                             <i class="fa fa-user mr-1" style="color: #ffbd29;"></i> 
                             <a href="{{route('dashboard_admin.index')}}"  class="text-white" target="">Dashboard</a>
-                       
+                            &nbsp
                     @else 
                        
                             <i class="fa fa-user mr-1 " style="color: #ffbd29;"></i> 
                             <a href="{{route('dashboard_seller.index')}}"  class="text-white" target="">Dashboard</a>
-                      
+                            &nbsp 
                     @endif
 
-                    <i class="fa fa-box-full mr-1 " style="color: #ffbd29;"></i> 
-                    <a href="/konfirmasi"  class="text-white" target="">Status Cod</a>
+                    <i class="fa fa-chart-line mr-1 " style="color: #ffbd29;"></i> 
+                    <a href="/konfirmasi"  class="text-white" target="">Status Cod</a> &nbsp
+                    <i class="fa fa-cart-plus mr-1 " style="color: #ffbd29;"></i> 
+                    <a href="/checkoutq"  class="text-white" target="">Belanjaan</a>
                       
 
                         <i class="fa fa-power-off mr-1 ml-3" style="color: #ffbd29;"></i> 

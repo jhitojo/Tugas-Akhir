@@ -126,7 +126,7 @@
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="{{ url('kontak_wa_seller') }}" class="small-box-footer">More info <i
+          <a href="{{ url('kontak_wa') }}" class="small-box-footer">More info <i
               class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>

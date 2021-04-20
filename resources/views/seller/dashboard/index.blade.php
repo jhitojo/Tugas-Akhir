@@ -43,7 +43,8 @@
         <div class="small-box bg-primary">
           <div class="inner">
             <?php
-              $produk = \App\Product::count();
+              $user = Auth::user();
+              $produk = \App\Product::where('user_id',$user->id)->count();
             ?>
             @if(!empty($produk))
             <h3>{{$produk}}</h3>
